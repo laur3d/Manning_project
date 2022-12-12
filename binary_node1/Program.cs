@@ -31,5 +31,4 @@ Console.WriteLine(NodeD.ToString());
 Console.WriteLine(NodeE.ToString());
 Console.WriteLine(NodeF.ToString());
 
-
 Console.ReadKey();
