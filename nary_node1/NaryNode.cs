@@ -25,17 +25,6 @@ namespace nary_node1
 
         public override string ToString()
         {
-            //string nodeValue = Value == null ? "null" : Value.ToString();
-
-            //var sb = new StringBuilder();
-
-            //foreach (var node in Children)
-            //{
-            //    sb.Append(" ");
-            //    sb.Append(node.Value.ToString());
-            //}
-
-            //return $"{nodeValue}: {sb.ToString()}";
             return ToString("");
         }
 
@@ -50,6 +39,23 @@ namespace nary_node1
 
             return lineRoot;
 
+        }
+        public NaryNode<T>? FindNode(T value)
+        {
+            NaryNode<T>? node = null;
+
+            if (Value.Equals(value)) return this;
+
+            foreach(var child in Children)
+            {
+                node = child.FindNode(value);
+                if(node is not null)
+                {
+                    return node;
+                }
+            }
+
+            return node;
         }
     }
 }

@@ -23,18 +23,27 @@ NodeE.AddLeft(NodeF);
 nodeParent.AddLeft(NodeA);
 nodeParent.AddRight(NodeB);
 
-//Console.WriteLine(nodeParent.ToString());
-//Console.WriteLine(NodeA.ToString());
-//Console.WriteLine(NodeB.ToString());
-//Console.WriteLine(NodeC.ToString());
-//Console.WriteLine(NodeD.ToString());
-//Console.WriteLine(NodeE.ToString());
-//Console.WriteLine(NodeF.ToString());
 
-Console.Write(nodeParent);
+FindValue(nodeParent, "Root");
+FindValue(nodeParent, "E");
+FindValue(nodeParent, "F");
+FindValue(nodeParent, "Q");
 
-
-Console.Write(NodeA);
+// Find F in the B subtree.
+FindValue(NodeB, "F");
 
 
 Console.ReadKey();
+
+void FindValue(BinaryNode<string> node, string value)
+{
+    var result = node.FindNode(value);
+    if(result is not null)
+    {
+        Console.WriteLine($"Found {value}");
+    } 
+    else
+    {
+        Console.WriteLine($"Value {value} not found");
+    }
+}

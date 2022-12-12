@@ -63,5 +63,32 @@ namespace binary_node1
             return lineRoot;
            
         }
+
+        public BinaryNode<T>? FindNode(T value)
+        {
+            BinaryNode<T>? node = null;
+
+            if (Value.Equals(value)) return this;
+
+            if(LeftChild is not null)
+            {
+                node = LeftChild.FindNode(value);
+                if(node != null)
+                {
+                    return node;
+                }
+            }
+
+            if (RightChild is not null)
+            {
+                node = RightChild.FindNode(value);
+                if (node != null)
+                {
+                    return node;
+                }
+            }
+
+            return node;
+        }
     }
 }
