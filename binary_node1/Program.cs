@@ -23,13 +23,18 @@ NodeE.AddLeft(NodeF);
 nodeParent.AddLeft(NodeA);
 nodeParent.AddRight(NodeB);
 
-Console.WriteLine(nodeParent.ToString());
-Console.WriteLine(NodeA.ToString());
-Console.WriteLine(NodeB.ToString());
-Console.WriteLine(NodeC.ToString());
-Console.WriteLine(NodeD.ToString());
-Console.WriteLine(NodeE.ToString());
-Console.WriteLine(NodeF.ToString());
+//Console.WriteLine(nodeParent.ToString());
+//Console.WriteLine(NodeA.ToString());
+//Console.WriteLine(NodeB.ToString());
+//Console.WriteLine(NodeC.ToString());
+//Console.WriteLine(NodeD.ToString());
+//Console.WriteLine(NodeE.ToString());
+//Console.WriteLine(NodeF.ToString());
+
+Console.Write(nodeParent);
+
+
+Console.Write(NodeA);
 
 
 Console.ReadKey();

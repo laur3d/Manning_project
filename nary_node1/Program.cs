@@ -31,24 +31,8 @@ root.AddChild(NodeA);
 root.AddChild(NodeB);
 root.AddChild(NodeC);
 
-Console.WriteLine(root.ToString());
+Console.WriteLine(root);
 
-Console.WriteLine(NodeA.ToString());
-
-Console.WriteLine(NodeB.ToString());
-
-Console.WriteLine(NodeC.ToString());
-
-Console.WriteLine(NodeD.ToString());
-
-Console.WriteLine(NodeE.ToString());
-
-Console.WriteLine(NodeF.ToString());
-
-Console.WriteLine(NodeG.ToString());
-
-Console.WriteLine(NodeH.ToString());
-
-Console.WriteLine(NodeI.ToString());
+Console.WriteLine(NodeA);
 
 Console.ReadLine();

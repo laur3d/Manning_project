@@ -31,13 +31,37 @@ namespace binary_node1
 
         public override string ToString()
         {
-            string left = LeftChild == null ? "null" : LeftChild.Value.ToString();
+            return ToString("");
 
-            string right = RightChild == null ? "null" : RightChild.Value.ToString();
+        }
 
-            string nodeValue = Value == null ? "null" : Value.ToString();
+        public string ToString(string spaces)
+        {
+            string lineRoot = $"{spaces}{Value}: \r\n";
 
-            return $"{nodeValue}: {left} {right}";
+            if(LeftChild != null)
+            {
+                lineRoot = $"{lineRoot} {LeftChild.ToString($"{spaces}  ")}";
+
+            } else if( RightChild != null)
+            {
+                lineRoot = $"{lineRoot} {($"{spaces}  None")}  \r\n";
+
+            }
+
+
+            if (RightChild != null)
+            {
+                lineRoot = $"{lineRoot} {RightChild.ToString($"{spaces}  ")}";
+            }
+            else if (LeftChild != null)
+            {
+                lineRoot = $"{lineRoot} {($"{spaces}  None")} \r\n";
+
+            }
+
+            return lineRoot;
+           
         }
     }
 }

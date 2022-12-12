@@ -25,17 +25,31 @@ namespace nary_node1
 
         public override string ToString()
         {
-            string nodeValue = Value == null ? "null" : Value.ToString();
+            //string nodeValue = Value == null ? "null" : Value.ToString();
 
-            var sb = new StringBuilder();
+            //var sb = new StringBuilder();
 
-            foreach (var node in Children)
+            //foreach (var node in Children)
+            //{
+            //    sb.Append(" ");
+            //    sb.Append(node.Value.ToString());
+            //}
+
+            //return $"{nodeValue}: {sb.ToString()}";
+            return ToString("");
+        }
+
+        public string ToString(string spaces)
+        {
+            string lineRoot = $"{spaces}{Value}: \r\n";
+
+            foreach(var child in Children)
             {
-                sb.Append(" ");
-                sb.Append(node.Value.ToString());
+                lineRoot = $"{lineRoot} {child.ToString($"{spaces}  ")}";
             }
 
-            return $"{nodeValue}: {sb.ToString()}";
+            return lineRoot;
+
         }
     }
 }
