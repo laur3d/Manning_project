@@ -24,13 +24,43 @@ nodeParent.AddLeft(NodeA);
 nodeParent.AddRight(NodeB);
 
 
-FindValue(nodeParent, "Root");
-FindValue(nodeParent, "E");
-FindValue(nodeParent, "F");
-FindValue(nodeParent, "Q");
+//FindValue(nodeParent, "Root");
+//FindValue(nodeParent, "E");
+//FindValue(nodeParent, "F");
+//FindValue(nodeParent, "Q");
 
-// Find F in the B subtree.
-FindValue(NodeB, "F");
+//// Find F in the B subtree.
+//FindValue(NodeB, "F");
+
+string result;
+result = "Preorder:      ";
+foreach (BinaryNode<string> node in nodeParent.TraversePreorder())
+{
+    result += string.Format("{0} ", node.Value);
+}
+Console.WriteLine(result);
+
+result = "InOrder:      ";
+foreach (BinaryNode<string> node in nodeParent.TraverseInorder())
+{
+    result += string.Format("{0} ", node.Value);
+}
+Console.WriteLine(result);
+
+result = "PostOrder:      ";
+foreach (BinaryNode<string> node in nodeParent.TraversePostorder())
+{
+    result += string.Format("{0} ", node.Value);
+}
+Console.WriteLine(result);
+
+result = "Breadth first:      ";
+foreach (BinaryNode<string> node in nodeParent.TraverseBreadthFirst())
+{
+    result += string.Format("{0} ", node.Value);
+}
+Console.WriteLine(result);
+
 
 
 Console.ReadKey();

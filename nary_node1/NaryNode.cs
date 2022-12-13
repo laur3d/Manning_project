@@ -25,6 +25,17 @@ namespace nary_node1
 
         public override string ToString()
         {
+            //string nodeValue = Value == null ? "null" : Value.ToString();
+
+            //var sb = new StringBuilder();
+
+            //foreach (var node in Children)
+            //{
+            //    sb.Append(" ");
+            //    sb.Append(node.Value.ToString());
+            //}
+
+            //return $"{nodeValue}: {sb.ToString()}";
             return ToString("");
         }
 
@@ -56,6 +67,69 @@ namespace nary_node1
             }
 
             return node;
+        }
+
+        public Queue<NaryNode<T>> TraversePreorder(Queue<NaryNode<T>> queue = null)
+        {
+            if (queue is null)
+            {
+                queue = new Queue<NaryNode<T>>();
+            }
+
+            queue.Enqueue(this);
+
+            foreach(var child in Children)
+            {
+                queue = child.TraversePreorder(queue);
+            }
+
+            return queue;
+        }
+
+
+
+        public Queue<NaryNode<T>> TraversePostorder(Queue<NaryNode<T>> queue = null)
+        {
+            if (queue is null)
+            {
+                queue = new Queue<NaryNode<T>>();
+            }
+
+            foreach (var child in Children)
+            {
+                queue = child.TraversePostorder(queue);
+            }
+
+            queue.Enqueue(this);
+
+            return queue;
+        }
+
+        public Queue<NaryNode<T>> TraverseBreadthFirst(Queue<NaryNode<T>> queue = null, bool skipAdd = false)
+        {
+            if (queue is null)
+            {
+                queue = new Queue<NaryNode<T>>();
+            }
+
+
+            if (!skipAdd)
+            {
+                queue.Enqueue(this);
+            }
+
+            foreach (var child in Children)
+            {
+                queue.Enqueue(child);
+            }
+
+            foreach (var child in Children)
+            {
+                queue = child.TraverseBreadthFirst(queue, true);
+            }
+
+
+            return queue;
         }
     }
 }

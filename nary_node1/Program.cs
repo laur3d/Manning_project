@@ -31,19 +31,29 @@ root.AddChild(NodeA);
 root.AddChild(NodeB);
 root.AddChild(NodeC);
 
-Console.WriteLine(root);
 
-Console.WriteLine(NodeA);
+string result;
+result = "Preorder:      ";
+foreach (NaryNode<string> node in root.TraversePreorder())
+{
+    result += string.Format("{0} ", node.Value);
+}
+Console.WriteLine(result);
 
-// Find some values.
-FindValue(root, "Root");
-FindValue(root, "E");
-FindValue(root, "F");
-FindValue(root, "Q");
 
-// Find F in the C subtree.
-FindValue(NodeC, "F");
-// Find F in the B subtree.
+result = "PostOrder:      ";
+foreach (NaryNode<string> node in root.TraversePostorder())
+{
+    result += string.Format("{0} ", node.Value);
+}
+Console.WriteLine(result);
+
+result = "Breadth first:      ";
+foreach (NaryNode<string> node in root.TraverseBreadthFirst())
+{
+    result += string.Format("{0} ", node.Value);
+}
+Console.WriteLine(result);
 
 Console.ReadLine();
 

@@ -90,5 +90,113 @@ namespace binary_node1
 
             return node;
         }
+
+        public Queue<BinaryNode<T>> TraversePreorder(Queue<BinaryNode<T>> queue = null)
+        {
+            if( queue is null)
+            {
+                queue = new Queue<BinaryNode<T>>();
+            }
+
+            queue.Enqueue(this);
+
+            if(LeftChild is not null)
+            {
+                queue = LeftChild.TraversePreorder(queue);
+            }
+
+            if(RightChild is not null)
+            {
+                queue = RightChild.TraversePreorder(queue);
+            }
+
+            return queue;
+        }
+
+
+        public Queue<BinaryNode<T>> TraverseInorder(Queue<BinaryNode<T>> queue = null)
+        {
+            if (queue is null)
+            {
+                queue = new Queue<BinaryNode<T>>();
+            }
+
+            if (LeftChild is not null)
+            {
+                queue = LeftChild.TraverseInorder(queue);
+            }
+
+            queue.Enqueue(this);
+
+            
+            if (RightChild is not null)
+            {
+                queue = RightChild.TraverseInorder(queue);
+            }
+
+            return queue;
+        }
+
+        public Queue<BinaryNode<T>> TraversePostorder(Queue<BinaryNode<T>> queue = null)
+        {
+            if (queue is null)
+            {
+                queue = new Queue<BinaryNode<T>>();
+            }
+
+            if (LeftChild is not null)
+            {
+                queue = LeftChild.TraversePostorder(queue);
+            }
+
+            if (RightChild is not null)
+            {
+                queue = RightChild.TraversePostorder(queue);
+            }
+
+            queue.Enqueue(this);
+
+            return queue;
+        }
+
+        public Queue<BinaryNode<T>> TraverseBreadthFirst(Queue<BinaryNode<T>> queue = null, bool skipAdd = false)
+        {
+            if (queue is null)
+            {
+                queue = new Queue<BinaryNode<T>>();
+            }
+
+
+            if (!skipAdd)
+            {
+                queue.Enqueue(this);
+            }
+
+
+            if (LeftChild is not null)
+            {
+                queue.Enqueue(LeftChild);
+               
+            }
+
+            if (RightChild is not null)
+            {
+                queue.Enqueue(RightChild);
+            }
+
+            if (LeftChild is not null)
+            {
+                queue = LeftChild.TraverseBreadthFirst(queue, true);
+            }
+
+
+            if (RightChild is not null)
+            {
+                queue = RightChild.TraverseBreadthFirst(queue, true);
+            }
+
+
+            return queue;
+        }
     }
 }
